@@ -114,10 +114,21 @@ cada una.
 
 ## 6. Ejecutar la rama PEFT (consigna 9b)
 
-Si tu consigna 3 justificó PEFT (LoRA/QLoRA):
+Si tu consigna 3 justificó PEFT (LoRA/QLoRA). Colab tiene integración nativa con
+GitHub: **no hace falta subir nada a Google Drive** en ningún paso.
 
-1. Abrí [`notebooks/notebook_peft.ipynb`](notebooks/notebook_peft.ipynb) en Google Colab
-   (subilo a Colab o abrilo directo desde GitHub con **Abrir en Colab**).
+1. Abrí [Google Colab](https://colab.research.google.com) → **Archivo → Abrir notebook
+   → pestaña GitHub** → pegá la URL de **tu propio fork** (o buscá tu usuario + el
+   nombre del repo) → seleccioná `unidad1/notebooks/notebook_peft.ipynb`.
+
+   Alternativa más rápida: armá la URL directo en el navegador, reemplazando
+   `TU-USUARIO` por tu usuario de GitHub:
+   ```
+   https://colab.research.google.com/github/TU-USUARIO/ucaece-sem-cd2-act/blob/master/unidad1/notebooks/notebook_peft.ipynb
+   ```
+   > Importante: usá **tu fork**, no el repositorio de la cátedra. Si abrís el
+   > original vas a estar trabajando sobre la plantilla, no sobre tu copia.
+
 2. Activá GPU: **Entorno de ejecución → Cambiar tipo de entorno de ejecución → GPU (T4)**.
 3. Ejecutá las celdas en orden. El notebook ya viene resuelto de punta a punta con un
    modelo base (GPT-2) y un dataset de ejemplo genérico.
@@ -126,7 +137,11 @@ Si tu consigna 3 justificó PEFT (LoRA/QLoRA):
 5. Al final del notebook vas a tener una comparación de las respuestas del modelo
    **antes y después** del ajuste con LoRA — esa comparación es tu evidencia para la
    consigna 9b.
-6. Subí el `.ipynb` ejecutado (con outputs) a este mismo repositorio.
+6. Guardá el resultado en tu repositorio con **Archivo → Guardar una copia en GitHub**
+   (la primera vez te va a pedir autorizar la conexión Colab↔GitHub). Elegí tu fork,
+   la rama `master` y la misma ruta `unidad1/notebooks/notebook_peft.ipynb`, y confirmá
+   — Colab commitea el notebook ejecutado (con outputs) directo a tu repositorio, sin
+   pasar por Drive ni por el Codespace.
 
 ## 7. Registrar y entregar (consigna 10)
 
