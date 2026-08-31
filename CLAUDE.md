@@ -58,3 +58,34 @@ requerimientos funcionales, estructura de carpetas, tareas a generar), ver el
 - **Manejo de errores explícito pero simple:** capturar y explicar errores esperables
   (API key ausente, proveedor no reconocido, error de red) con mensajes claros; no
   agregar manejo de excepciones genérico o excesivo que no aporte valor pedagógico.
+
+## 2. Patrón de dev container por unidad (obligatorio, no reabrir)
+
+Este repositorio es un **monorepo con una carpeta por unidad** (`unidad1/`, `unidad2/`,
+`unidad3/`, `unidad4/`), y cada unidad puede necesitar un entorno distinto (por ejemplo,
+Unidad 3 con Docker-in-Docker para MLOps, Unidad 4 con dependencias de RAG/agentes).
+GitHub Codespaces **no detecta automáticamente** un `devcontainer.json` ubicado dentro de
+una subcarpeta como `unidad2/.devcontainer/devcontainer.json`: solo escanea la raíz del
+repositorio y el patrón de "múltiples configuraciones" `.devcontainer/<nombre>/devcontainer.json`.
+
+Por eso, **toda config de Codespaces de cualquier unidad debe crearse en la raíz del
+repositorio**, nunca dentro de la carpeta de la unidad:
+
+```
+.devcontainer/
+├── unidad1/devcontainer.json
+├── unidad2/devcontainer.json   (cuando exista)
+├── unidad3/devcontainer.json   (cuando exista)
+└── unidad4/devcontainer.json   (cuando exista)
+```
+
+Cada `devcontainer.json` debe fijar `"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}/unidadN"`
+para que el Codespace abra directamente en la carpeta de esa unidad (así el estudiante no
+necesita hacer `cd` manualmente), y su `postCreateCommand` debe instalar únicamente el
+`requirements.txt` de esa unidad. Cada unidad es así independiente y autocontenida: sumar
+o modificar la config de una no afecta a las demás.
+
+En el README de cada unidad, la instrucción para crear el Codespace debe indicar
+explícitamente **Code → Codespaces → "..." (tres puntos) → New with options → elegir la
+config de la unidad correspondiente**, no el atajo de un clic ("Create codespace on
+main"), porque ese atajo no garantiza qué configuración usa cuando hay varias disponibles.

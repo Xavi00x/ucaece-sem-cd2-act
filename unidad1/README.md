@@ -22,11 +22,19 @@ Según lo que hayas justificado en la consigna 2 y 3:
 
 ## 2. Preparar el entorno (consigna 6)
 
+Este repositorio agrupa varias unidades, cada una con su propio entorno. Por eso, para
+crear el Codespace **no uses el botón de un clic** ("Create codespace on main"): hay que
+elegir explícitamente la configuración de Unidad 1.
+
 1. Desde este repositorio en GitHub, hacé clic en **Use this template** (o forkealo).
-2. En tu copia, andá a **Code → Codespaces → Create codespace on main**.
-3. Esperá a que termine de levantar el Codespace (instala las dependencias de
-   `requirements.txt` automáticamente, no hace falta ningún paso manual).
-4. Verificá que Python esté disponible abriendo una terminal y corriendo:
+2. En tu copia, andá a **Code → Codespaces** y hacé clic en los **tres puntos ("...")**
+   junto al botón verde → **New with options**.
+3. En el campo **Dev container configuration**, elegí **unidad1-seminario-cd2** y
+   confirmá con **Create codespace**.
+4. Esperá a que termine de levantar el Codespace (instala las dependencias de
+   `requirements.txt` automáticamente, no hace falta ningún paso manual). La terminal se
+   abre directamente parada en la carpeta `unidad1/`.
+5. Verificá que Python esté disponible corriendo:
    ```bash
    python3 --version
    ```
@@ -40,13 +48,13 @@ Según el modelo que hayas elegido en la consigna 2:
 - **Groq (modelo de pesos abiertos):** creá una key gratuita en
   [console.groq.com](https://console.groq.com/keys).
 
-Luego, en la terminal del Codespace:
+Luego, en la terminal del Codespace (ya parada en `unidad1/`):
 
 ```bash
-cp unidad1/.env.example unidad1/.env
+cp .env.example .env
 ```
 
-Editá `unidad1/.env` y completá:
+Editá `.env` y completá:
 
 ```env
 MODEL_PROVIDER=groq      # o "gemini", según tu elección
@@ -60,10 +68,11 @@ archivo `.env` al repositorio** (ya está excluido en `.gitignore`).
 ## 4. Instalar dependencias (consigna 8)
 
 Ya se instalan solas al crear el Codespace (`postCreateCommand` en
-`.devcontainer/devcontainer.json`). Si necesitás reinstalarlas manualmente:
+`.devcontainer/unidad1/devcontainer.json`, en la raíz del repositorio). Si necesitás
+reinstalarlas manualmente:
 
 ```bash
-pip install -r unidad1/requirements.txt
+pip install -r requirements.txt
 ```
 
 ## 5. Ejecutar la rama de prompt engineering (consigna 9a)
@@ -77,10 +86,9 @@ Antes de ejecutar, personalizá tu entrega:
 - En [`src/main.py`](src/main.py), reemplazá `CONSULTAS_DE_EJEMPLO` por al menos 3
   consultas reales de tu caso de uso.
 
-Ejecutá el script desde la raíz de `unidad1/`:
+Ejecutá el script (la terminal ya está parada en `unidad1/`):
 
 ```bash
-cd unidad1
 python -m src.main
 ```
 
@@ -123,8 +131,11 @@ Si tu consigna 3 justificó PEFT (LoRA/QLoRA):
 ## Estructura del repositorio
 
 ```
+.devcontainer/
+└── unidad1/devcontainer.json         # config de Codespaces para Unidad 1 (Python 3.11)
+                                       # el repo agrupa varias unidades; cada una tiene
+                                       # su propia config bajo .devcontainer/<unidad>/
 unidad1/
-├── .devcontainer/devcontainer.json   # entorno Codespaces, Python 3.11
 ├── .env.example                      # variables de entorno esperadas (sin valores reales)
 ├── docs/actividad-unidad1.md         # consigna oficial de cátedra
 ├── notebooks/notebook_peft.ipynb     # rama PEFT (LoRA), para Google Colab

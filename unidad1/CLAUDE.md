@@ -67,10 +67,18 @@ instalación local, que le permita a cada estudiante:
 
 ## 5. Estructura de carpetas esperada
 
+> **Nota sobre el devcontainer:** este repositorio es un monorepo con una carpeta por
+> unidad, así que la config de Codespaces de Unidad 1 **no vive dentro de `unidad1/`**,
+> sino en la raíz del repo bajo `.devcontainer/unidad1/devcontainer.json` (patrón de
+> "múltiples configuraciones" de GitHub Codespaces). Ver la sección 6 del `CLAUDE.md` raíz
+> para el detalle de por qué y cómo se replica este patrón en las demás unidades.
+
 ```
+.devcontainer/
+└── unidad1/
+    └── devcontainer.json   (vive en la raíz del repo, no dentro de unidad1/)
+
 unidad1/
-├── .devcontainer/
-│   └── devcontainer.json
 ├── .env.example
 ├── .gitignore
 ├── requirements.txt
@@ -110,8 +118,9 @@ unidad1/
 
 ## 7. Tareas a realizar por Claude Code (orden sugerido)
 
-1. Generar `.devcontainer/devcontainer.json` (imagen Python 3.11, `postCreateCommand: pip
-   install -r requirements.txt`).
+1. Generar `.devcontainer/unidad1/devcontainer.json` **en la raíz del repositorio** (no
+   dentro de `unidad1/`): imagen Python 3.11, `workspaceFolder` apuntando a `unidad1/`,
+   `postCreateCommand: pip install -r requirements.txt`.
 2. Generar `.gitignore` (Python estándar + `.env`).
 3. Generar `.env.example`.
 4. Generar `requirements.txt` (`python-dotenv`, `groq`, `google-generativeai`).

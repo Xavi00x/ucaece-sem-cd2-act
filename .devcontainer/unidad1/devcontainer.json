@@ -1,6 +1,7 @@
 {
-  "name": "seminario-cd2-unidad1",
+  "name": "unidad1-seminario-cd2",
   "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}/unidad1",
   "postCreateCommand": "pip install --upgrade pip && pip install -r requirements.txt",
   "customizations": {
     "vscode": {
