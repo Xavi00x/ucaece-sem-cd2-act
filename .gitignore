@@ -1,0 +1,24 @@
+# Gitignore raíz - aplica como red de seguridad a todas las unidades
+# (unidad1/ ya tiene su propio .gitignore más específico)
+
+# Variables de entorno (nunca subir claves de API)
+.env
+**/.env
+
+# Bytecode y cachés de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Entornos virtuales
+.venv/
+venv/
+env/
+
+# Jupyter / Colab
+.ipynb_checkpoints/
+
+# Editores / SO
+.vscode/
+.DS_Store
+Thumbs.db
