@@ -103,6 +103,14 @@ cada una.
   `.env`, o elegiste un `MODEL_PROVIDER` distinto al de la key que cargaste.
 - `Proveedor '...' no soportado` → `MODEL_PROVIDER` debe ser exactamente `groq` o
   `gemini`.
+- `Error code: 404 ... model_not_found` (rama Groq) → el catálogo de modelos de Groq
+  cambia con el tiempo y el modelo pineado puede haber sido discontinuado. Corré en la
+  terminal del Codespace (no expone tu key en el resultado):
+  ```bash
+  curl -s -H "Authorization: Bearer $GROQ_API_KEY" https://api.groq.com/openai/v1/models
+  ```
+  Elegí un `id` vigente de la respuesta y reemplazá `GROQ_MODEL_NAME` en
+  `src/providers/groq_provider.py` por ese valor.
 
 ## 6. Ejecutar la rama PEFT (consigna 9b)
 
