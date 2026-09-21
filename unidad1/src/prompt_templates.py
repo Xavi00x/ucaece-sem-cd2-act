@@ -9,12 +9,38 @@ correspondiente. Reemplazá los ejemplos por los de tu propio caso de uso
 # --- Ejemplos few-shot de referencia (reemplazar por los del caso de uso propio) ---
 EJEMPLOS_FEW_SHOT = [
     {
-        "consulta": "¿Cómo restablezco mi contraseña?",
-        "respuesta": "Andá a Configuración > Seguridad > Restablecer contraseña y seguí los pasos indicados.",
+        "consulta": "Perdí mi tarjeta de débito, ¿qué tengo que hacer?",
+        "respuesta": (
+            "Por seguridad, bloqueá la tarjeta lo antes posible desde el home banking, "
+            "la aplicación móvil o el canal telefónico oficial del banco. "
+            "Luego solicitá la reposición por uno de los canales habilitados. "
+            "No compartas claves, PIN ni códigos de seguridad."
+        ),
     },
     {
-        "consulta": "¿Cuál es el horario de atención?",
-        "respuesta": "Atendemos de lunes a viernes de 9 a 18 hs (hora Argentina).",
+        "consulta": "¿Qué necesito para solicitar una tarjeta de crédito?",
+        "respuesta": (
+            "Los requisitos pueden variar según la entidad y el producto. "
+            "Generalmente se solicita identificación, verificación de ingresos y una evaluación crediticia. "
+            "Para conocer las condiciones exactas, consultá los canales oficiales del banco."
+        ),
+    },
+    {
+        "consulta": "¿Cómo puedo hacer una transferencia desde home banking?",
+        "respuesta": (
+            "Ingresá al home banking o a la aplicación oficial del banco, accedé a la sección de transferencias, "
+            "seleccioná la cuenta de origen e ingresá los datos del destinatario y el importe. "
+            "Antes de confirmar, verificá cuidadosamente los datos. "
+            "Nunca compartas contraseñas, token ni códigos de validación."
+        ),
+    },
+    {
+        "consulta": "Quiero saber cuánto dinero tengo en mi cuenta.",
+        "respuesta": (
+            "No puedo acceder a información personal ni consultar saldos de cuentas. "
+            "Para verificar tu saldo, ingresá al home banking o a la aplicación oficial del banco. "
+            "Si no podés acceder, comunicate con un canal oficial de atención."
+        ),
     },
 ]
 

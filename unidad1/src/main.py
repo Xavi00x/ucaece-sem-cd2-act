@@ -27,9 +27,9 @@ CONSTRUIR_PROMPT = construir_prompt_few_shot
 
 # Reemplazar por al menos 3 consultas relacionadas con tu propio caso de uso (consigna 1).
 CONSULTAS_DE_EJEMPLO = [
-    "¿Cómo cancelo una suscripción activa?",
-    "¿Qué medios de pago aceptan?",
-    "¿Puedo cambiar mi plan en cualquier momento?",
+    "Se me bloqueó la tarjeta después de ingresar mal el PIN varias veces, ¿qué puedo hacer?",
+    "¿Puedo solicitar un préstamo personal desde la aplicación del banco?",
+    "¿Me podés decir los últimos movimientos de mi cuenta?",
 ]
 
 
